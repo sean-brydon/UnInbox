@@ -1,20 +1,23 @@
 import { cva, type VariantProps } from 'class-variance-authority';
+
+export type AvatarSize =
+  | '3xs'
+  | '2xs'
+  | 'xs'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | '2xl'
+  | '3xl'
+  | '4xl'
+  | '5xl'
+  | undefined;
+
 function generateAvatarUrl(
   type: 'user' | 'org' | 'group' | 'contact',
   publicId: string,
-  size:
-    | '3xs'
-    | '2xs'
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'xl'
-    | '2xl'
-    | '3xl'
-    | '4xl'
-    | '5xl'
-    | undefined
+  size: AvatarSize
 ) {
   const types = [
     { name: 'user', value: 'u' },

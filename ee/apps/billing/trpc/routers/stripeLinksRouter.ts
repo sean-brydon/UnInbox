@@ -36,7 +36,6 @@ export const stripeLinksRouter = router({
         ],
         subscription_data: {
           description: subscriptionDescription,
-          //@ts-ignore metadata not typed correctly
           metadata: {
             orgId,
             product: 'subscription',

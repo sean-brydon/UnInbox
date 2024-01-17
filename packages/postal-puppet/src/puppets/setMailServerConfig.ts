@@ -24,7 +24,7 @@ export async function setMailServerConfig(options: {
     newLimit: number | undefined
   ): Promise<number> {
     // await puppetInstance.page.select(selector, 'custom');
-    const inputElement = await options.puppetInstance.page.locator(selector);
+    const inputElement = options.puppetInstance.page.locator(selector);
     newLimit && (await inputElement.fill(newLimit.toString()));
     //@ts-ignore
     const finalValue = +(await inputElement.map((el) => el.value).wait());

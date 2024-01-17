@@ -22,7 +22,6 @@ export const profileRouter = router({
     const formData = new FormData();
     formData.append('metadata', `{"userId":"${userId}"}`);
 
-    //@ts-ignore - stack depth issue
     const uploadSignedURL: UploadSignedURLResponse = await $fetch(
       `https://api.cloudflare.com/client/v4/accounts/${config.cf.accountId}/images/v2/direct_upload`,
       {
@@ -83,8 +82,7 @@ export const profileRouter = router({
 
       const newPublicId = nanoId();
       const insertUserProfileResponse = await db.insert(userProfiles).values({
-        //@ts-ignore TS dosnt know that userId must exist on user procedures
-        userId: +userId,
+        userId: userId,
         publicId: newPublicId,
         firstName: input.fName,
         lastName: input.lName,
